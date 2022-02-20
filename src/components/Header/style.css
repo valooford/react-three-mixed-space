@@ -1,0 +1,23 @@
+.rc-slider {
+  width: auto;
+  margin-left: 10px;
+  flex-basis: 100px;
+}
+
+.rc-slider-handle {
+  border-color: #6f1d80;
+  transition: box-shadow 0.5s;
+}
+.rc-slider-handle:hover,
+.rc-slider-handle:focus,
+.rc-slider-handle-click-focused {
+  border-color: #6f1d80;
+  box-shadow: 0 0 10px #6f1d80;
+}
+
+.rc-slider-rail {
+  background-color: #fff;
+}
+.rc-slider-track {
+  background-color: #c291cc;
+}

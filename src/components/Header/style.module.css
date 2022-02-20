@@ -1,0 +1,30 @@
+.header {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 10px;
+  z-index: 1;
+}
+
+.toggleViewButton {
+  vertical-align: middle;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline-offset: -1px;
+  cursor: pointer;
+}
+.toggleViewButton path {
+  transition: fill 0.5s ease-out;
+}
+.toggleViewButton:hover *[fill="#000000"] path {
+  fill: #c291cc;
+}
+.toggleViewButton.toggleViewButton_active *[fill="#000000"] path {
+  fill: #6f1d80;
+}

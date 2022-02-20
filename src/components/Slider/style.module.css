@@ -1,0 +1,22 @@
+.sliderRoot {
+  height: calc(100vh - 60px);
+  display: flex;
+}
+.sliderRoot * {
+  box-sizing: border-box;
+}
+
+.infoContainer {
+  flex-basis: 50%;
+  display: flex;
+  padding: 10px 70px;
+}
+.info {
+  flex: 1;
+  border-left: 4px solid #c9c9c9;
+}
+
+.picture {
+  flex-basis: 50%;
+  background-color: #718cbd;
+}
