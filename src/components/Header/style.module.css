@@ -6,25 +6,22 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 60px;
-  padding: 0 10px;
+  height: 60rem;
+  padding: 0 20rem 0 10rem;
+  background-color: #fff;
   z-index: 1;
 }
 
-.toggleViewButton {
-  vertical-align: middle;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  outline-offset: -1px;
-  cursor: pointer;
+.controls {
+  display: flex;
+  align-items: center;
 }
-.toggleViewButton path {
-  transition: fill 0.5s ease-out;
+.controls > * {
+  margin-left: 50rem;
 }
-.toggleViewButton:hover *[fill="#000000"] path {
-  fill: #c291cc;
-}
-.toggleViewButton.toggleViewButton_active *[fill="#000000"] path {
-  fill: #6f1d80;
+
+.divider {
+  width: 2rem;
+  height: 35rem;
+  background-color: var(--color-primary-dark);
 }

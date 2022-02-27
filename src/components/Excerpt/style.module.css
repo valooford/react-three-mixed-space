@@ -1,0 +1,61 @@
+.excerpt {
+  position: relative;
+  padding: 75rem 0 40rem;
+  background-color: var(--color-primary-light);
+}
+
+.divider {
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  background-color: var(--color-primary);
+}
+
+.content {
+  display: flex;
+}
+
+.text1,
+.text2 {
+  flex: 1;
+  padding-top: 70rem;
+  line-height: 30rem;
+}
+.text1 {
+  text-align: right;
+}
+.cta {
+  padding-right: 180rem;
+}
+.ctaButtonContainer {
+  padding-top: 20rem;
+  text-align: right;
+}
+
+.image {
+  position: relative;
+  padding: 45rem 80rem;
+}
+.circle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200rem;
+  height: 200rem;
+  margin-left: -120rem;
+  background-color: #fff;
+  border: 20rem solid var(--color-primary-light);
+  border-radius: 120rem;
+}
+.bgCircle {
+  display: inline-block;
+  width: 150rem;
+  height: 150rem;
+  background-color: var(--color-primary);
+  border-radius: 75rem;
+}
+.bgCircle:not(:first-child) {
+  margin-left: 30rem;
+}

@@ -1,0 +1,9 @@
+.articleLink {
+  display: block;
+  width: 100%;
+  padding: 20rem 30rem;
+  background-color: var(--color-primary-light);
+}
+.articleLink_dark {
+  background-color: var(--color-primary-dark);
+}

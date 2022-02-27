@@ -1,0 +1,21 @@
+.heading {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  margin: 0;
+}
+
+.heading svg {
+  width: 20rem;
+  height: 20rem;
+  margin-right: 10rem;
+}
+.heading svg * {
+  fill: var(--color-primary);
+}
+.heading_dark svg * {
+  fill: var(--color-primary-dark);
+}
+.heading_light svg * {
+  fill: var(--color-primary-light);
+}

@@ -6,11 +6,9 @@
 .container {
   box-sizing: border-box;
   height: 100vh;
-  padding-top: 60px;
+  padding-top: 60rem;
   perspective: 400px;
   overflow: hidden;
-
-  background-color: #f0e6f2;
 }
 
 .page {
@@ -23,19 +21,19 @@
 }
 
 .page_3d {
-  width: calc(100vw - 6px);
+  width: calc(100vw - 6rem);
   margin: -50%;
   padding: 50vw;
   transform-style: preserve-3d;
 }
 
 .page::-webkit-scrollbar {
-  width: 6px;
-  background-color: #f0e6f2;
+  width: 6rem;
+  background-color: #fff;
 }
 .page::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #c291cc;
+  border-radius: 10rem;
+  background-color: var(--color-primary-dark);
 }
 
 .page_3d::-webkit-scrollbar {
@@ -47,6 +45,4 @@
 }
 
 .wrapper {
-  height: 200vh;
-  background-color: #b2cc91;
 }

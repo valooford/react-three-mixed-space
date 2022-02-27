@@ -1,0 +1,50 @@
+.gallery {
+  padding: 30rem 0 20rem;
+}
+
+.row1,
+.row2 {
+  display: flex;
+}
+.row1 > *:not(:first-child),
+.row2 > *:not(:first-child) {
+  margin-left: 20rem;
+}
+
+.row1 {
+  height: 200rem;
+  margin-bottom: 20rem;
+}
+.headingContainer {
+  width: 300rem;
+  margin-right: auto;
+}
+
+.row2 {
+  height: 170rem;
+}
+.slogan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200rem;
+  margin-right: auto;
+}
+.slogan > *:not(:last-child) {
+  margin-bottom: 20rem;
+}
+
+.line1,
+.line2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  background-color: var(--color-primary);
+}
+.line1 {
+  left: 25rem;
+}
+.line2 {
+  right: 25rem;
+}

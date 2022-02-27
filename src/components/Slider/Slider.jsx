@@ -1,12 +1,16 @@
+import Slide from "../Slide";
 import classes from "./style.module.css";
 
 const Slider = () => {
   return (
-    <div className={classes.sliderRoot}>
-      <div className={classes.infoContainer}>
-        <div className={classes.info}></div>
+    <div className={classes.slider}>
+      <Slide />
+      <div className={classes.buttonsContainer}>
+        <button type="button" />
+        <button type="button" />
+        <button type="button" />
+        <button type="button" />
       </div>
-      <div className={classes.picture}></div>
     </div>
   );
 };

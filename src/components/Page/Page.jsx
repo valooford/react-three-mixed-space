@@ -1,7 +1,11 @@
 import cn from "classnames";
 
 import { useStoreContext } from "../../App";
-import Slider from "../Slider";
+import ATFBanner from "../ATFBanner";
+import Excerpt from "../Excerpt";
+import Footer from "../Footer";
+import Gallery from "../Gallery";
+import Statements from "../Statements";
 import classes from "./style.module.css";
 
 const Page = () => {
@@ -20,8 +24,13 @@ const Page = () => {
         }}
       >
         <div className={classes.content}>
-          <Slider />
-          <div className={classes.wrapper}></div>
+          <div className={classes.wrapper}>
+            <ATFBanner />
+            <Statements />
+            <Gallery />
+            <Excerpt />
+            <Footer />
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,11 @@
+.button {
+  width: 190rem;
+  height: 40rem;
+  background-color: var(--color-primary-dark);
+  border-radius: 20rem;
+  transition: background-color var(--duration-transition-ui) ease-out;
+}
+
+.button:hover {
+  background-color: var(--color-primary);
+}

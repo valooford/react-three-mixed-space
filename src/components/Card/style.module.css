@@ -1,0 +1,11 @@
+.card {
+  width: 150rem;
+}
+
+.card > *:not(:last-child) {
+  margin-bottom: 25rem;
+}
+
+.content {
+  line-height: 20rem;
+}

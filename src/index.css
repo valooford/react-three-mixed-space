@@ -1,3 +1,21 @@
+html {
+  font-size: calc(100vh / 937);
+  /* font-size: 2px; */
+
+  --color-primary: #a5bcc9;
+  --color-primary-dark: #6b7982;
+  --color-primary-light: #e0e7ec;
+  --color-accent-1: #c9c5a5;
+
+  --duration-transition-ui: 0.5s;
+}
 body {
   margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline-offset: -1px;
+  cursor: pointer;
 }

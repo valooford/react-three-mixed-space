@@ -1,0 +1,40 @@
+.slide {
+  width: 100%;
+  padding: 20rem 30rem;
+  background-color: var(--color-accent-1);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  top: calc(100% - 75rem);
+  left: 0;
+  width: calc(100% - 20rem);
+  margin: 0 10rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.circle:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.line1,
+.line2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 16%;
+  background-color: #fff;
+}
+.line1 {
+  left: 30.5%;
+}
+.line2 {
+  left: 53.5%;
+}

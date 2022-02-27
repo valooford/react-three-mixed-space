@@ -1,22 +1,23 @@
-.sliderRoot {
-  height: calc(100vh - 60px);
-  display: flex;
-}
-.sliderRoot * {
-  box-sizing: border-box;
-}
-
-.infoContainer {
-  flex-basis: 50%;
-  display: flex;
-  padding: 10px 70px;
-}
-.info {
+.slider {
   flex: 1;
-  border-left: 4px solid #c9c9c9;
+  display: flex;
+  position: relative;
+  overflow: hidden;
 }
 
-.picture {
-  flex-basis: 50%;
-  background-color: #718cbd;
+.buttonsContainer {
+  position: absolute;
+  bottom: 100rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rem;
+}
+
+.buttonsContainer button {
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--color-primary-dark);
+  border-radius: 5rem;
 }

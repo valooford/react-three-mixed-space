@@ -1,0 +1,13 @@
+.image {
+  width: 320rem;
+  background-color: var(--color-primary-light);
+  transition: background-color var(--duration-transition-ui) ease-out;
+  cursor: pointer;
+}
+.image:hover {
+  background-color: var(--color-primary);
+}
+
+.image_sm {
+  width: 160rem;
+}

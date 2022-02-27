@@ -1,0 +1,6 @@
+.wrapper {
+  position: relative;
+  max-width: 1440rem;
+  margin: 0 auto;
+  padding: 0 80rem;
+}

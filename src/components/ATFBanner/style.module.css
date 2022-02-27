@@ -1,0 +1,34 @@
+.banner {
+  display: flex;
+  height: 675rem;
+}
+
+.image {
+  width: 65%;
+  height: 100%;
+  background-image: url("../../assets/img/hexagon-bg.svg");
+  background-size: 40rem 69rem;
+  background-position: 15rem 5rem;
+
+  --shadow-blur: 50rem;
+  --shadow-blur-neg: calc(-1 * var(--shadow-blur));
+  box-shadow: inset 0 var(--shadow-blur) var(--shadow-blur) #fff,
+    inset var(--shadow-blur) 0 var(--shadow-blur) #fff,
+    inset 0 var(--shadow-blur-neg) var(--shadow-blur) #fff,
+    inset var(--shadow-blur-neg) 0 var(--shadow-blur) #fff;
+}
+
+.sliderContainer {
+  flex: 1;
+  display: flex;
+}
+
+.articles {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+.articleContainer {
+  flex: 1;
+  display: flex;
+}

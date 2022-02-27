@@ -1,0 +1,8 @@
+.footer {
+  padding: 47rem 0;
+  text-align: center;
+  background-color: var(--color-primary-dark);
+}
+.footer > *:not(:last-child) {
+  margin-right: 10rem;
+}

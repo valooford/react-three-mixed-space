@@ -1,23 +1,33 @@
 .rc-slider {
-  width: auto;
-  margin-left: 10px;
-  flex-basis: 100px;
+  width: 200rem;
+  height: 10rem;
+  padding: 0;
+}
+.rc-slider:hover {
+  cursor: pointer;
 }
 
 .rc-slider-handle {
-  border-color: #6f1d80;
-  transition: box-shadow 0.5s;
+  width: 20rem;
+  height: 20rem;
+  margin-top: -5rem;
+  background-color: var(--color-primary-dark);
+  border: none;
 }
 .rc-slider-handle:hover,
 .rc-slider-handle:focus,
 .rc-slider-handle-click-focused {
-  border-color: #6f1d80;
-  box-shadow: 0 0 10px #6f1d80;
+  box-shadow: none;
 }
 
+.rc-slider-rail,
+.rc-slider-track {
+  height: 10rem;
+  border-radius: 2px;
+}
 .rc-slider-rail {
-  background-color: #fff;
+  background-color: var(--color-primary-light);
 }
 .rc-slider-track {
-  background-color: #c291cc;
+  background-color: var(--color-primary);
 }
