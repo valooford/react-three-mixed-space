@@ -23,15 +23,11 @@ const Page = () => {
             : "",
         }}
       >
-        <div className={classes.content}>
-          <div className={classes.wrapper}>
-            <ATFBanner />
-            <Statements />
-            <Gallery />
-            <Excerpt />
-            <Footer />
-          </div>
-        </div>
+        <ATFBanner />
+        <Statements />
+        <Gallery />
+        <Excerpt />
+        <Footer />
       </div>
     </div>
   );

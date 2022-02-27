@@ -6,7 +6,7 @@ import Space from "./components/Space";
 
 const TOGGLE_VIEW = "view/toggle";
 const SET_ANGLE = "view/set-angle";
-const initialState = { isThreeDimensional: false, angle: 30 };
+const initialState = { isThreeDimensional: false, angle: 20 };
 const reducer = (currentState, action) => {
   switch (action.type) {
     case TOGGLE_VIEW:

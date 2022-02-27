@@ -26,8 +26,8 @@ const Header = () => {
         <div className={classes.divider} />
         <Slider
           value={angle}
-          min={-30}
-          max={75}
+          min={-20}
+          max={20}
           step={0.1}
           onChange={setAngle}
           className={classes.slider}
