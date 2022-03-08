@@ -1,17 +1,24 @@
-import { useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { useStoreContext } from "../../App";
-import { useSpaceScene } from "./hooks";
+import { useStoreContext } from "../../store";
+import WebGLOverlayApp from "../../webgl";
 import classes from "./style.module.css";
 
 const Space = () => {
-  const canvasRef = useRef(null);
+  const [canvas, setCanvas] = useState(null);
 
   const [{ angle }] = useStoreContext();
 
-  useSpaceScene(canvasRef, { angle });
+  const webGLOverlayApp = useMemo(
+    () => (canvas ? new WebGLOverlayApp({ canvas }) : null),
+    [canvas]
+  );
 
-  return <canvas className={classes.canvas} ref={canvasRef} />;
+  useEffect(() => webGLOverlayApp?.setAngle(angle), [webGLOverlayApp, angle]);
+
+  useEffect(() => () => webGLOverlayApp?.destroy(), [webGLOverlayApp]);
+
+  return <canvas className={classes.canvas} ref={setCanvas} />;
 };
 
 export default Space;

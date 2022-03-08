@@ -3,7 +3,7 @@ import "./style.css";
 
 import Slider from "rc-slider";
 
-import { useStoreContext } from "../../App";
+import { useStoreContext } from "../../store";
 import { ReactComponent as InfoIcon } from "../../assets/img/info.svg";
 import { ReactComponent as NightModeIcon } from "../../assets/img/night.svg";
 import classes from "./style.module.css";
@@ -11,8 +11,7 @@ import Logo from "../Logo/Logo";
 import IconButton from "../IconButton";
 
 const Header = () => {
-  const [{ isThreeDimensional, angle }, { toggleView, setAngle }] =
-    useStoreContext();
+  const [{ angle }, { toggleView, setAngle }] = useStoreContext();
   return (
     <div className={classes.header}>
       <Logo onClick={toggleView} />

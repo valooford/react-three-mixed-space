@@ -1,6 +1,6 @@
 import cn from "classnames";
 
-import { useStoreContext } from "../../App";
+import { useStoreContext } from "../../store";
 import ATFBanner from "../ATFBanner";
 import Excerpt from "../Excerpt";
 import Footer from "../Footer";
