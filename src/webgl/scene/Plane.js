@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 class Plane extends THREE.Object3D {
   static areaScale = 0.0084;
-  static shadowScale = Plane.areaScale * 1.5;
+  static shadowScale = Plane.areaScale * 2;
   static areaDepth = 0.35;
 
   constructor({ canvas, camera, texture, onIntersect }) {

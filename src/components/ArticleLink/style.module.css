@@ -3,6 +3,7 @@
   width: 100%;
   padding: 20rem 30rem;
   background-color: var(--color-primary-light);
+  outline-offset: -1rem;
 }
 .articleLink_dark {
   background-color: var(--color-primary-dark);

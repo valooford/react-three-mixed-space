@@ -1,11 +1,12 @@
 .statements {
   position: relative;
-  padding: 40rem 0 62rem;
+  padding: 20rem 0 62rem;
   background-color: var(--color-primary-light);
 }
 
 .cardsContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

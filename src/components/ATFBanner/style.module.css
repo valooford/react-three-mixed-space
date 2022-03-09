@@ -1,11 +1,11 @@
 .banner {
   display: flex;
-  height: 675rem;
+  flex-wrap: wrap;
+  min-height: 675rem;
 }
 
 .image {
-  width: 65%;
-  height: 100%;
+  flex: 8 1 35%;
   background-image: url("../../assets/img/hexagon-bg.svg");
   background-size: 40rem 69rem;
   background-position: 15rem 5rem;
@@ -19,16 +19,20 @@
 }
 
 .sliderContainer {
-  flex: 1;
+  flex: 0 1 280rem;
+  min-width: 200rem;
+  min-height: 675rem;
   display: flex;
 }
 
 .articles {
-  width: 20%;
+  flex: 1 1 280rem;
+  min-width: 200rem;
   display: flex;
   flex-direction: column;
 }
 .articleContainer {
   flex: 1;
+  min-height: 200rem;
   display: flex;
 }

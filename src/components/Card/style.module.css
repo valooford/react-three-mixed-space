@@ -1,5 +1,8 @@
 .card {
-  width: 150rem;
+  flex: 1 1 120rem;
+  max-width: 150rem;
+  min-width: 120rem;
+  padding: 20rem 10rem 0;
 }
 
 .card > *:not(:last-child) {

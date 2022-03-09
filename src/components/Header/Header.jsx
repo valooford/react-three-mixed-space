@@ -12,6 +12,9 @@ import IconButton from "../IconButton";
 
 const Header = () => {
   const [{ angle }, { toggleView, setAngle }] = useStoreContext();
+  const handleAngleChange = (value) => {
+    setAngle(-value);
+  };
   return (
     <div className={classes.header}>
       <Logo onClick={toggleView} />
@@ -24,11 +27,11 @@ const Header = () => {
         </IconButton>
         <div className={classes.divider} />
         <Slider
-          value={angle}
+          value={-angle}
           min={-20}
           max={20}
           step={0.1}
-          onChange={setAngle}
+          onChange={handleAngleChange}
           className={classes.slider}
         />
       </div>

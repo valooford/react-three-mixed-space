@@ -1,5 +1,6 @@
 .gallery {
   padding: 30rem 0 20rem;
+  overflow: hidden;
 }
 
 .row1,
@@ -43,8 +44,8 @@
   background-color: var(--color-primary);
 }
 .line1 {
-  left: 25rem;
+  left: -15rem;
 }
 .line2 {
-  right: 25rem;
+  right: -15rem;
 }

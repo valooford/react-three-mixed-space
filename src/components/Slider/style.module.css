@@ -12,12 +12,24 @@
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 40rem;
+  padding: 0 30rem;
 }
 
 .buttonsContainer button {
+  padding: 10rem;
+  background-color: transparent;
+  outline: none;
+}
+.buttonsContainer button::before {
+  content: "";
+  display: block;
   width: 10rem;
   height: 10rem;
   background-color: var(--color-primary-dark);
   border-radius: 5rem;
+  transition: background-color var(--duration-transition-ui) ease-out;
+}
+.buttonsContainer button:hover::before,
+.buttonsContainer button:focus::before {
+  background-color: #000;
 }
