@@ -1,3 +1,7 @@
+import Engine from "./engine";
+
 export const getContext = ({ canvas }) => {
-  return {};
+  const engine = new Engine({ canvas });
+
+  return { engine };
 };
