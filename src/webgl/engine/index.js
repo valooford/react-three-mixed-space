@@ -24,6 +24,10 @@ class Engine {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x222222);
   }
+
+  draw() {
+    this.renderer.render(this.scene, this.camera);
+  }
 }
 
 export default Engine;
