@@ -20,6 +20,9 @@ class Engine {
     );
     this.camera.zoom = Engine.cameraZoom;
     this.camera.updateProjectionMatrix();
+
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0x222222);
   }
 }
 
