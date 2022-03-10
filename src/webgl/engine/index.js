@@ -19,6 +19,7 @@ class Engine {
       Engine.cameraFar
     );
     this.camera.zoom = Engine.cameraZoom;
+    this.camera.updateProjectionMatrix();
   }
 }
 
