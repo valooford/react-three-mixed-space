@@ -7,10 +7,13 @@ class MainStartup {
     const { engine } = context;
 
     this.engine = engine;
+    this.engine.camera.position.z = 2;
 
     this.model = new Model();
 
     this.engine.scene.add(this.model);
+
+    this.engine.draw();
   }
 }
 
