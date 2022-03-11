@@ -9,6 +9,8 @@ class MainStartup {
     this.engine = engine;
 
     this.model = new Model();
+
+    this.engine.scene.add(this.model);
   }
 }
 
