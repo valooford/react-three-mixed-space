@@ -59,7 +59,13 @@ class Engine {
     this.draw();
   }
 
-  update() {}
+  update(dtime, time) {
+    this.scene.traverse((obj) => {
+      if (typeof obj.update === "function") {
+        obj.update(dtime, time);
+      }
+    });
+  }
 }
 
 export default Engine;
