@@ -54,6 +54,9 @@ class Engine {
     const dtime = now - this.lastTime;
     this.time += dtime;
     this.lastTime = now;
+
+    this.update(dtime, this.time);
+    this.draw();
   }
 
   update() {}
