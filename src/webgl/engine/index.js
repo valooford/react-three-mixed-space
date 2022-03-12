@@ -86,6 +86,9 @@ class Engine {
       clientHeight * this.pixelRatio,
       false
     );
+
+    this.camera.aspect = clientWidth / clientHeight;
+    this.camera.updateProjectionMatrix();
   }
 }
 
