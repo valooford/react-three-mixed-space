@@ -8,6 +8,7 @@ class Model extends THREE.Object3D {
     this._material = new THREE.MeshPhongMaterial({ color: "lightgreen" });
 
     this._model = new THREE.Mesh(this._geometry, this._material);
+    this._model.position.y = 0.5;
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
