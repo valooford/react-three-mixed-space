@@ -7,6 +7,11 @@ class Engine {
   static cameraFar = 100;
 
   constructor({ canvas }) {
+    this.requestId = null;
+    this.running = false;
+
+    this.animate = this.animate.bind(this);
+
     this.renderer = new THREE.WebGLRenderer({ canvas });
 
     this.canvas = this.renderer.domElement;
@@ -29,7 +34,10 @@ class Engine {
     this.renderer.render(this.scene, this.camera);
   }
 
-  start() {}
+  start() {
+    this.requestId = requestAnimationFrame(this.animate);
+    this.running = true;
+  }
 
   stop() {}
 
