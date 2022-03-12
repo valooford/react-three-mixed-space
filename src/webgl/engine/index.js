@@ -89,6 +89,13 @@ class Engine {
 
     this.camera.aspect = clientWidth / clientHeight;
     this.camera.updateProjectionMatrix();
+
+    const size = { width: clientWidth, height: clientHeight };
+    this.scene.traverse((obj) => {
+      if (typeof obj.resize === "function") {
+        obj.resize(size);
+      }
+    });
   }
 }
 
