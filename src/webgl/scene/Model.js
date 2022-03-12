@@ -11,6 +11,8 @@ class Model extends THREE.Object3D {
 
     this.add(this._model);
   }
+
+  update(dtime, time) {}
 }
 
 export default Model;
