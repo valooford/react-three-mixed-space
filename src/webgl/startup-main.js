@@ -1,5 +1,6 @@
 import * as THREE from "three";
 
+import Camera from "./scene/Camera";
 import Model from "./scene/Model";
 
 class MainStartup {
@@ -7,7 +8,10 @@ class MainStartup {
     const { engine } = context;
 
     this.engine = engine;
-    this.engine.camera.position.z = 2;
+    this.camera = new Camera({
+      camera: this.engine.camera,
+      canvas: this.engine.canvas,
+    });
 
     const light = new THREE.AmbientLight(0xffffff, 1);
 
