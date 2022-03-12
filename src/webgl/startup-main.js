@@ -16,7 +16,7 @@ class MainStartup {
     this.engine.scene.add(light);
     this.engine.scene.add(this.model);
 
-    this.engine.draw();
+    this.engine.start();
   }
 }
 
