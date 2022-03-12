@@ -12,7 +12,10 @@ class Model extends THREE.Object3D {
     this.add(this._model);
   }
 
-  update(dtime, time) {}
+  update(dtime, time) {
+    this._model.rotation.x = time * 0.001;
+    this._model.rotation.y = time * 0.001;
+  }
 }
 
 export default Model;
