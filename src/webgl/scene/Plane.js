@@ -12,6 +12,7 @@ class Plane extends THREE.Object3D {
       side: THREE.DoubleSide,
     });
     this._plane = new THREE.Mesh(geometry, material);
+    this._plane.receiveShadow = true;
 
     this.add(this._plane);
   }
