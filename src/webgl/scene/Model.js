@@ -14,7 +14,6 @@ class Model extends THREE.Object3D {
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
     this._light.castShadow = true;
-    this._light.shadow.mapSize.set(4096, 4096);
 
     this.add(this._model);
     this.add(this._light);
