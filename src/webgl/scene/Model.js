@@ -9,9 +9,11 @@ class Model extends THREE.Object3D {
 
     this._model = new THREE.Mesh(this._geometry, this._material);
     this._model.position.y = 0.5;
+    this._model.castShadow = true;
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
+    this._light.castShadow = true;
 
     this.add(this._model);
     this.add(this._light);
