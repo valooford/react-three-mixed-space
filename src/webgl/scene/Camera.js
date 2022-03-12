@@ -8,6 +8,9 @@ class Camera extends THREE.Object3D {
     this.camera = camera;
 
     this.controls = new OrbitControls(this.camera, canvas);
+    this.controls.minDistance = 2;
+    this.controls.maxDistance = 6;
+    this.controls.update();
   }
 }
 
