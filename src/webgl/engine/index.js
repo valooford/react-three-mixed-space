@@ -16,6 +16,11 @@ class Engine {
 
     this.renderer = new THREE.WebGLRenderer({ canvas });
     this.pixelRatio = window.devicePixelRatio;
+    this.renderer.setSize(
+      canvas.clientWidth * this.pixelRatio,
+      canvas.clientHeight * this.pixelRatio,
+      false
+    );
 
     this.canvas = this.renderer.domElement;
 
