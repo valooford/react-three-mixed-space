@@ -15,6 +15,7 @@ class Engine {
     this.animate = this.animate.bind(this);
 
     this.renderer = new THREE.WebGLRenderer({ canvas });
+    this.pixelRatio = window.devicePixelRatio;
 
     this.canvas = this.renderer.domElement;
 
