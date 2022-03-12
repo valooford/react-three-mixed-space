@@ -9,6 +9,8 @@ class Engine {
   constructor({ canvas }) {
     this.requestId = null;
     this.running = false;
+    this.time = 0;
+    this.lastTime = 0;
 
     this.animate = this.animate.bind(this);
 
@@ -45,9 +47,13 @@ class Engine {
     this.running = false;
   }
 
-  animate() {
+  animate(now) {
     if (!this.running) return;
     this.requestId = requestAnimationFrame(this.animate);
+
+    const dtime = now - this.lastTime;
+    this.time += dtime;
+    this.lastTime = now;
   }
 
   update() {}
