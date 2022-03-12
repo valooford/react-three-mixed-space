@@ -79,7 +79,14 @@ class Engine {
     });
   }
 
-  resize() {}
+  resize() {
+    const { clientWidth, clientHeight } = this.canvas;
+    this.renderer.setSize(
+      clientWidth * this.pixelRatio,
+      clientHeight * this.pixelRatio,
+      false
+    );
+  }
 }
 
 export default Engine;
