@@ -13,7 +13,7 @@ class MainStartup {
       canvas: this.engine.canvas,
     });
 
-    const light = new THREE.AmbientLight(0xffffff, 1);
+    const light = new THREE.AmbientLight(0xffffff, 0.3);
 
     this.model = new Model();
 
