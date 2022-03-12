@@ -6,10 +6,12 @@ class Camera extends THREE.Object3D {
     super();
 
     this.camera = camera;
+    this.camera.position.set(0, 2, 2);
 
     this.controls = new OrbitControls(this.camera, canvas);
     this.controls.minDistance = 2;
     this.controls.maxDistance = 6;
+    this.controls.maxPolarAngle = THREE.MathUtils.degToRad(80);
     this.controls.update();
   }
 }
