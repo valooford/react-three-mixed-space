@@ -22,6 +22,7 @@ class Engine {
       canvas.clientHeight * this.pixelRatio,
       false
     );
+    this.renderer.shadowMap.enabled = true;
 
     this.canvas = this.renderer.domElement;
 
