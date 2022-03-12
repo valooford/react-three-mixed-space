@@ -13,6 +13,7 @@ class Engine {
     this.lastTime = 0;
 
     this.animate = this.animate.bind(this);
+    this.resize = this.resize.bind(this);
 
     this.renderer = new THREE.WebGLRenderer({ canvas });
     this.pixelRatio = window.devicePixelRatio;
@@ -43,6 +44,9 @@ class Engine {
   }
 
   start() {
+    window.addEventListener("resize", this.resize);
+
+    this.resize();
     this.requestId = requestAnimationFrame(this.animate);
     this.running = true;
   }
@@ -51,6 +55,8 @@ class Engine {
     cancelAnimationFrame(this.requestId);
     this.requestId = null;
     this.running = false;
+
+    window.removeEventListener("resize", this.resize);
   }
 
   animate(now) {
@@ -72,6 +78,8 @@ class Engine {
       }
     });
   }
+
+  resize() {}
 }
 
 export default Engine;
