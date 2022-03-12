@@ -39,7 +39,11 @@ class Engine {
     this.running = true;
   }
 
-  stop() {}
+  stop() {
+    cancelAnimationFrame(this.requestId);
+    this.requestId = null;
+    this.running = false;
+  }
 
   animate() {}
 
