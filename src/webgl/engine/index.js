@@ -28,6 +28,14 @@ class Engine {
   draw() {
     this.renderer.render(this.scene, this.camera);
   }
+
+  start() {}
+
+  stop() {}
+
+  animate() {}
+
+  update() {}
 }
 
 export default Engine;
