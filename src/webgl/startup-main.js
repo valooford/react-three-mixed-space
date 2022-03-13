@@ -6,6 +6,7 @@ import Plane from "./scene/Plane";
 
 const assetUrls = {
   modelTexture: "./assets/textures/wall.png",
+  model: "./assets/models/char_man.fbx",
 };
 
 class MainStartup {
@@ -22,12 +23,14 @@ class MainStartup {
 
     const light = new THREE.AmbientLight(0xffffff, 0.3);
 
+    assets.queue(assetUrls.model);
     assets.queue(assetUrls.modelTexture);
 
     assets.subscribe(() => {
       {
+        const model = assets.get(assetUrls.model);
         const texture = assets.get(assetUrls.modelTexture);
-        this.model = new Model({ texture });
+        this.model = new Model({ model, texture });
       }
 
       {
