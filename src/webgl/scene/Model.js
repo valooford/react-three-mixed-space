@@ -29,6 +29,7 @@ class Model extends THREE.Object3D {
     const dtimeS = dtime * 0.001;
 
     if (this.targetPosition) {
+      this.rotate(dtimeS);
       this.move(dtimeS);
 
       if (this.isPositioned) {
@@ -36,6 +37,10 @@ class Model extends THREE.Object3D {
         this.isPositioned = false;
       }
     }
+  }
+
+  rotate(dtime) {
+    this.lookAt(this.targetPosition);
   }
 
   move(dtime) {
