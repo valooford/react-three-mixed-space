@@ -17,9 +17,28 @@ class AssetManager {
 
   get() {}
 
-  loadQueued() {}
+  loadQueued() {
+    if (this._queue.size === 0) {
+      this._listeners.forEach((fn) => fn());
+      return;
+    }
+    const queue = Array.from(this._queue);
+    this._queue.clear();
+    let count = 0;
+    queue.map((url) =>
+      this.load(url).then(() => {
+        count++;
+        if (count === queue.length) {
+          // progress calculation goes here...
+          this._listeners.forEach((fn) => fn());
+        }
+      })
+    );
+  }
 
-  load() {}
+  load() {
+    return new Promise((resolve, reject) => {});
+  }
 }
 
 export default AssetManager;
