@@ -23,10 +23,16 @@ class Model extends THREE.Object3D {
   }
 
   update(dtime, time) {
+    const dtimeS = dtime * 0.001;
+
     if (this.targetPosition) {
-      this.position.copy(this.targetPosition);
+      this.move(dtimeS);
       this.targetPosition = null;
     }
+  }
+
+  move(dtime) {
+    this.position.copy(this.targetPosition);
   }
 }
 
