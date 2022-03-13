@@ -9,7 +9,7 @@ class Model extends THREE.Object3D {
 
   static rotationLimit = Math.PI / 4; // condition for simultaneous move and rotation
 
-  constructor({ model, texture }) {
+  constructor({ model, texture, idle, walk }) {
     super();
 
     this.targetPosition = null;
