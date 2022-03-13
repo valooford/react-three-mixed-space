@@ -9,6 +9,7 @@ class Model extends THREE.Object3D {
     super();
 
     this.targetPosition = null;
+    this.isRotated = false;
     this.isPositioned = false;
 
     this._geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -34,8 +35,9 @@ class Model extends THREE.Object3D {
       this.rotate(dtimeS);
       this.move(dtimeS);
 
-      if (this.isPositioned) {
+      if (this.isRotated && this.isPositioned) {
         this.targetPosition = null;
+        this.isRotated = false;
         this.isPositioned = false;
       }
     }
@@ -47,6 +49,12 @@ class Model extends THREE.Object3D {
     this.lookAt(this.targetPosition);
     const targetRotation = new THREE.Quaternion().copy(this.quaternion);
     const angle = startRotation.angleTo(targetRotation);
+    if (angle > step) {
+      this.quaternion.copy(startRotation.rotateTowards(targetRotation, step));
+    } else {
+      this.quaternion.copy(targetRotation);
+      this.isRotated = true;
+    }
   }
 
   move(dtime) {
