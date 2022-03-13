@@ -60,6 +60,14 @@ class MainStartup {
   setAngle(angle) {
     this.camera.rotateTo(angle);
   }
+
+  destroy() {
+    this.engine.stop();
+    this.engine = null;
+    this.camera = null;
+    this.model = null;
+    this.plane = null;
+  }
 }
 
 export default MainStartup;

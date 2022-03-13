@@ -11,7 +11,10 @@ class WebGLOverlayApp {
     this.startup.setAngle(angle);
   }
 
-  destroy() {}
+  destroy() {
+    this.startup.destroy();
+    this.startup = null;
+  }
 }
 
 export default WebGLOverlayApp;
