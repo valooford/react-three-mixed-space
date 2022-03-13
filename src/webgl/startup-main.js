@@ -32,20 +32,22 @@ class MainStartup {
       {
         const model = assets.get(assetUrls.model);
         const texture = assets.get(assetUrls.modelTexture);
-        const idle = assets.get(assetUrls.modelAnimationIdle);
-        const walk = assets.get(assetUrls.modelAnimationWalk);
-        this.model = new Model({ model, texture, idle, walk });
+        const idle = this.track(assets.get(assetUrls.modelAnimationIdle));
+        const walk = this.track(assets.get(assetUrls.modelAnimationWalk));
+        this.model = this.track(new Model({ model, texture, idle, walk }));
       }
 
       {
         const onIntersect = (coords) => {
           this.model.targetPosition = this.engine.scene.worldToLocal(coords);
         };
-        this.plane = new Plane({
-          camera: this.engine.camera,
-          canvas: this.engine.canvas,
-          onIntersect,
-        });
+        this.plane = this.track(
+          new Plane({
+            camera: this.engine.camera,
+            canvas: this.engine.canvas,
+            onIntersect,
+          })
+        );
       }
 
       this.engine.scene.add(light);
