@@ -15,6 +15,7 @@ class Model extends THREE.Object3D {
     this.targetPosition = null;
     this.isRotated = false;
     this.isPositioned = false;
+    this._mixer = null;
 
     this._material = new THREE.MeshPhongMaterial({ map: texture });
 
@@ -26,6 +27,8 @@ class Model extends THREE.Object3D {
         part.castShadow = true;
       }
     });
+
+    this._mixer = new THREE.AnimationMixer(this._model);
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
