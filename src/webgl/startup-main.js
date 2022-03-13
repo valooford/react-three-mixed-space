@@ -19,6 +19,7 @@ class MainStartup {
     this.camera = new Camera({ camera: this.engine.camera });
     this.model = null;
     this.plane = null;
+    this.tracked = new Set();
 
     const light = new THREE.AmbientLight(0xffffff, 0.3);
 
@@ -60,6 +61,8 @@ class MainStartup {
   setAngle(angle) {
     this.camera.rotateTo(angle);
   }
+
+  track(resource) {}
 
   destroy() {
     this.engine.stop();
