@@ -1,15 +1,15 @@
 import * as THREE from "three";
 
 class Plane extends THREE.Object3D {
-  constructor({ camera, canvas, onIntersect }) {
+  constructor({ camera, canvas, texture, onIntersect }) {
     super();
 
     this.rotateX(THREE.MathUtils.degToRad(-90));
 
     const geometry = new THREE.PlaneGeometry(10, 10, 10);
     const material = new THREE.MeshPhongMaterial({
-      color: "ghostwhite",
-      side: THREE.DoubleSide,
+      map: texture,
+      transparent: true,
     });
     this._plane = new THREE.Mesh(geometry, material);
     this._plane.receiveShadow = true;
