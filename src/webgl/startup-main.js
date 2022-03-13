@@ -71,6 +71,12 @@ class MainStartup {
     if (typeof resource.dispose === "function") {
       this.tracked.add(resource);
     }
+    if (resource instanceof THREE.Object3D) {
+      this.tracked.add(resource);
+      this.track(resource.geometry);
+      this.track(resource.material);
+      this.track(resource.children);
+    }
     return resource;
   }
 
