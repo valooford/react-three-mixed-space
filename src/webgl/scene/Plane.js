@@ -15,7 +15,13 @@ class Plane extends THREE.Object3D {
     this._plane.receiveShadow = true;
 
     const raycaster = new THREE.Raycaster();
-    this.onIntersect = (e) => {};
+    this.onIntersect = (e) => {
+      const mouse = new THREE.Vector2(
+        (e.clientX / canvas.clientWidth) * 2 - 1,
+        -((e.clientY / canvas.clientHeight) * 2 - 1)
+      );
+      raycaster.setFromCamera(mouse, camera);
+    };
     this.onIntersect = this.onIntersect.bind(this);
     canvas.addEventListener("click", this.onIntersect);
 
