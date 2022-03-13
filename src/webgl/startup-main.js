@@ -9,7 +9,6 @@ const assetUrls = {
   model: "./assets/models/char_man.fbx",
   modelAnimationIdle: "./assets/models/char_man_idle.fbx",
   modelAnimationWalk: "./assets/models/char_man_walk.fbx",
-  planeTexture: "./assets/textures/grid.png",
 };
 
 class MainStartup {
@@ -27,7 +26,6 @@ class MainStartup {
     assets.queue(assetUrls.modelTexture);
     assets.queue(assetUrls.modelAnimationIdle);
     assets.queue(assetUrls.modelAnimationWalk);
-    assets.queue(assetUrls.planeTexture);
 
     assets.subscribe(() => {
       {
@@ -39,14 +37,12 @@ class MainStartup {
       }
 
       {
-        const texture = assets.get(assetUrls.planeTexture);
         const onIntersect = (coords) => {
           this.model.targetPosition = this.engine.scene.worldToLocal(coords);
         };
         this.plane = new Plane({
           camera: this.engine.camera,
           canvas: this.engine.canvas,
-          texture,
           onIntersect,
         });
       }

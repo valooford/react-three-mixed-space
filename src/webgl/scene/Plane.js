@@ -5,7 +5,7 @@ class Plane extends THREE.Object3D {
 
   static areaDepth = 0.35;
 
-  constructor({ camera, canvas, texture, onIntersect }) {
+  constructor({ camera, canvas, onIntersect }) {
     super();
 
     this.centerAnchor = new THREE.Object3D();
@@ -13,10 +13,8 @@ class Plane extends THREE.Object3D {
     this.rotateX(THREE.MathUtils.degToRad(-90));
 
     const geometry = new THREE.PlaneGeometry();
-    const material = new THREE.MeshPhongMaterial({
-      map: texture,
-      transparent: true,
-    });
+    const material = new THREE.ShadowMaterial();
+    material.opacity = 0.7;
     this._plane = new THREE.Mesh(geometry, material);
     this._plane.receiveShadow = true;
 
