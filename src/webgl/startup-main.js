@@ -17,9 +17,12 @@ class MainStartup {
     const light = new THREE.AmbientLight(0xffffff, 0.3);
 
     this.model = new Model();
+
+    const onIntersect = (coords) => {};
     this.plane = new Plane({
       camera: this.engine.camera,
       canvas: this.engine.canvas,
+      onIntersect,
     });
 
     this.engine.scene.add(light);

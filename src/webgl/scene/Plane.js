@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 class Plane extends THREE.Object3D {
-  constructor({ camera, canvas }) {
+  constructor({ camera, canvas, onIntersect }) {
     super();
 
     this.rotateX(THREE.MathUtils.degToRad(-90));
@@ -23,6 +23,10 @@ class Plane extends THREE.Object3D {
       raycaster.setFromCamera(mouse, camera);
 
       const [intersectedPlane] = raycaster.intersectObject(this._plane, false);
+      if (intersectedPlane) {
+        const { x, z } = intersectedPlane.point;
+        onIntersect(new THREE.Vector3(x, 0, z));
+      }
     };
     this.onIntersect = this.onIntersect.bind(this);
     canvas.addEventListener("click", this.onIntersect);
