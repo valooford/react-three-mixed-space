@@ -61,10 +61,14 @@ class Model extends THREE.Object3D {
     if (this.targetPosition) {
       const angle = this.rotate(dtimeS);
       if (this.isRotated && angle < Model.rotationLimit) {
+        if (!this._actions.walk.isRunning()) {
+          this.switchAnimation(this._actions.walk);
+        }
         this.move(dtimeS);
       }
 
       if (this.isRotated && this.isPositioned) {
+        this.switchAnimation(this._actions.idle);
         this.targetPosition = null;
         this.isRotated = false;
         this.isPositioned = false;
