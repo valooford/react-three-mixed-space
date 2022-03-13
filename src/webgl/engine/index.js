@@ -15,7 +15,11 @@ class Engine {
     this.animate = this.animate.bind(this);
     this.resize = this.resize.bind(this);
 
-    this.renderer = new THREE.WebGLRenderer({ canvas });
+    this.renderer = new THREE.WebGLRenderer({
+      canvas,
+      alpha: true,
+      premultipliedAlpha: false,
+    });
     this.pixelRatio = window.devicePixelRatio;
     this.renderer.setSize(
       canvas.clientWidth * this.pixelRatio,
@@ -37,7 +41,6 @@ class Engine {
     this.camera.updateProjectionMatrix();
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x222222);
   }
 
   draw() {
