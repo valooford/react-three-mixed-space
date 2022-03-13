@@ -29,7 +29,6 @@ class Model extends THREE.Object3D {
 
     if (this.targetPosition) {
       this.move(dtimeS);
-      this.targetPosition = null;
     }
   }
 
@@ -38,7 +37,13 @@ class Model extends THREE.Object3D {
     const targetVector = new THREE.Vector3()
       .copy(this.targetPosition)
       .sub(this.position);
-    this.position.copy(this.targetPosition);
+    if (targetVector.length() > distance) {
+      targetVector.normalize().multiplyScalar(distance);
+      this.position.add(targetVector);
+    } else {
+      this.position.copy(this.targetPosition);
+      this.targetPosition = null;
+    }
   }
 }
 
