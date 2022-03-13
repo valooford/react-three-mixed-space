@@ -6,7 +6,7 @@ class Plane extends THREE.Object3D {
 
   static areaDepth = 0.35;
 
-  constructor({ camera, canvas, onIntersect }) {
+  constructor({ camera, onIntersect }) {
     super();
 
     this.centerAnchor = new THREE.Object3D();
@@ -34,8 +34,8 @@ class Plane extends THREE.Object3D {
     const raycaster = new THREE.Raycaster();
     this.onIntersect = (e) => {
       const mouse = new THREE.Vector2(
-        (e.clientX / canvas.clientWidth) * 2 - 1,
-        -((e.clientY / canvas.clientHeight) * 2 - 1)
+        (e.clientX / window.innerWidth) * 2 - 1,
+        -((e.clientY / window.innerHeight) * 2 - 1)
       );
       raycaster.setFromCamera(mouse, camera);
 
@@ -49,7 +49,7 @@ class Plane extends THREE.Object3D {
       }
     };
     this.onIntersect = this.onIntersect.bind(this);
-    canvas.addEventListener("click", this.onIntersect);
+    window.addEventListener("click", this.onIntersect);
 
     this.add(this._actionPlane);
     this.add(this._shadowPlane);

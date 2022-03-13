@@ -4,6 +4,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 2;
+  pointer-events: none;
 
   animation: appear calc(var(--anim-duration) * 1.5);
 }
