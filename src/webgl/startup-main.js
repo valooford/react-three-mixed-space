@@ -77,6 +77,13 @@ class MainStartup {
       this.track(resource.material);
       this.track(resource.children);
     }
+    if (resource instanceof THREE.Material) {
+      Object.values(resource).forEach((r) => {
+        if (r instanceof THREE.Texture) {
+          this.track(r);
+        }
+      });
+    }
     return resource;
   }
 
