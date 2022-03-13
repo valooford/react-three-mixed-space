@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
 class AssetManager {
   constructor() {
@@ -42,6 +43,9 @@ class AssetManager {
     return new Promise((resolve, reject) => {
       if (url.endsWith(".png")) {
         const loader = new THREE.TextureLoader();
+        loader.load(url, resolve, undefined, reject);
+      } else if (url.endsWith(".fbx")) {
+        const loader = new FBXLoader();
         loader.load(url, resolve, undefined, reject);
       } else {
         reject();
