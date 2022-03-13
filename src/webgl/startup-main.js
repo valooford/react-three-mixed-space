@@ -68,6 +68,9 @@ class MainStartup {
       resource.forEach((r) => this.track(r));
       return resource;
     }
+    if (typeof resource.dispose === "function") {
+      this.tracked.add(resource);
+    }
     return resource;
   }
 
