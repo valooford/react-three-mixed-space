@@ -46,6 +46,14 @@ class Model extends THREE.Object3D {
     this.add(this._light.target);
   }
 
+  switchAnimation(anim) {
+    this._currentAction.fadeOut(0.5);
+    this._currentAction = anim;
+    this._currentAction.reset();
+    this._currentAction.fadeIn(0.5);
+    this._currentAction.play();
+  }
+
   update(dtime, time) {
     const dtimeS = dtime * 0.001;
     this._mixer.update(dtimeS);
