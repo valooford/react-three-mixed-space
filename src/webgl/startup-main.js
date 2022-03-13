@@ -62,7 +62,14 @@ class MainStartup {
     this.camera.rotateTo(angle);
   }
 
-  track(resource) {}
+  track(resource) {
+    if (!resource) return resource;
+    if (Array.isArray(resource)) {
+      resource.forEach((r) => this.track(r));
+      return resource;
+    }
+    return resource;
+  }
 
   destroy() {
     this.engine.stop();
