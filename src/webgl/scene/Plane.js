@@ -93,6 +93,10 @@ class Plane extends THREE.Object3D {
 
     this.centerAnchor.position.copy(center);
   }
+
+  dispose() {
+    window.removeEventListener("click", this.onIntersect);
+  }
 }
 
 export default Plane;
