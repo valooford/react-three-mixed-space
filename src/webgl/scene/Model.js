@@ -1,6 +1,8 @@
 import * as THREE from "three";
 
 class Model extends THREE.Object3D {
+  static speed = 1; // units per second
+
   constructor() {
     super();
 
@@ -32,6 +34,10 @@ class Model extends THREE.Object3D {
   }
 
   move(dtime) {
+    const distance = Model.speed * dtime;
+    const targetVector = new THREE.Vector3()
+      .copy(this.targetPosition)
+      .sub(this.position);
     this.position.copy(this.targetPosition);
   }
 }
