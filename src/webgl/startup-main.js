@@ -5,7 +5,7 @@ import Model from "./scene/Model";
 import Plane from "./scene/Plane";
 
 const assetUrls = {
-  modelTexture: "./assets/textures/wall.png",
+  modelTexture: "./assets/textures/Miner_diffuse.tga.png",
   model: "./assets/models/char_man.fbx",
 };
 

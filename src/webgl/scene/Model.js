@@ -20,7 +20,12 @@ class Model extends THREE.Object3D {
 
     this._model = model;
     this._model.scale.setScalar(Model.scale);
-    this._model.castShadow = true;
+    this._model.children.forEach((part) => {
+      if (part instanceof THREE.Mesh) {
+        part.material = this._material;
+        part.castShadow = true;
+      }
+    });
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
