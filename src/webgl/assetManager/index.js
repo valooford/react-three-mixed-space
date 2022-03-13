@@ -7,7 +7,9 @@ class AssetManager {
     this._listeners = [];
   }
 
-  subscribe() {}
+  subscribe(fn) {
+    this._listeners.push(fn);
+  }
 
   queue() {}
 
