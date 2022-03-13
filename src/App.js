@@ -14,7 +14,7 @@ const App = () => {
   return (
     <StoreContext.Provider value={[state, actions]}>
       <div>
-        {/* <WebGLOverlay /> */}
+        {isThreeDimensional && <WebGLOverlay />}
         <Header />
         <Page />
       </div>
