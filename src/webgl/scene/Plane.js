@@ -21,6 +21,8 @@ class Plane extends THREE.Object3D {
         -((e.clientY / canvas.clientHeight) * 2 - 1)
       );
       raycaster.setFromCamera(mouse, camera);
+
+      const [intersectedPlane] = raycaster.intersectObject(this._plane, false);
     };
     this.onIntersect = this.onIntersect.bind(this);
     canvas.addEventListener("click", this.onIntersect);
