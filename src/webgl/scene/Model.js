@@ -7,6 +7,7 @@ class Model extends THREE.Object3D {
     super();
 
     this.targetPosition = null;
+    this.isPositioned = false;
 
     this._geometry = new THREE.BoxGeometry(1, 1, 1);
     this._material = new THREE.MeshPhongMaterial({ color: "lightgreen" });
@@ -29,6 +30,11 @@ class Model extends THREE.Object3D {
 
     if (this.targetPosition) {
       this.move(dtimeS);
+
+      if (this.isPositioned) {
+        this.targetPosition = null;
+        this.isPositioned = false;
+      }
     }
   }
 
@@ -42,7 +48,7 @@ class Model extends THREE.Object3D {
       this.position.add(targetVector);
     } else {
       this.position.copy(this.targetPosition);
-      this.targetPosition = null;
+      this.isPositioned = true;
     }
   }
 }
