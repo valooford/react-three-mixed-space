@@ -17,27 +17,34 @@ class MainStartup {
       camera: this.engine.camera,
       canvas: this.engine.canvas,
     });
+    this.model = null;
+    this.plane = null;
 
     const light = new THREE.AmbientLight(0xffffff, 0.3);
 
     assets.queue(assetUrls.modelTexture);
 
-    this.model = new Model();
+    assets.subscribe(() => {
+      this.model = new Model();
 
-    const onIntersect = (coords) => {
-      this.model.targetPosition = this.engine.scene.worldToLocal(coords);
-    };
-    this.plane = new Plane({
-      camera: this.engine.camera,
-      canvas: this.engine.canvas,
-      onIntersect,
+      {
+        const onIntersect = (coords) => {
+          this.model.targetPosition = this.engine.scene.worldToLocal(coords);
+        };
+        this.plane = new Plane({
+          camera: this.engine.camera,
+          canvas: this.engine.canvas,
+          onIntersect,
+        });
+      }
+
+      this.engine.scene.add(light);
+      this.engine.scene.add(this.model);
+      this.engine.scene.add(this.plane);
+
+      this.engine.start();
     });
-
-    this.engine.scene.add(light);
-    this.engine.scene.add(this.model);
-    this.engine.scene.add(this.plane);
-
-    this.engine.start();
+    assets.loadQueued();
   }
 }
 
