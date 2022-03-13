@@ -6,7 +6,7 @@ import Plane from "./scene/Plane";
 
 class MainStartup {
   constructor({ context }) {
-    const { engine } = context;
+    const { engine, assets } = context;
 
     this.engine = engine;
     this.camera = new Camera({
