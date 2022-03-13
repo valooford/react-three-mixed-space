@@ -15,7 +15,9 @@ class AssetManager {
     this._queue.add(url);
   }
 
-  get() {}
+  get(url) {
+    return this._cache[url];
+  }
 
   loadQueued() {
     if (this._queue.size === 0) {
