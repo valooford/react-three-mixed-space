@@ -40,8 +40,12 @@ class AssetManager {
 
   load(url) {
     return new Promise((resolve, reject) => {
-      // ...
-      reject();
+      if (url.endsWith(".png")) {
+        const loader = new THREE.TextureLoader();
+        loader.load(url, resolve, undefined, reject);
+      } else {
+        reject();
+      }
     })
       .then((res) => {
         this._cache[url] = res;
