@@ -3,4 +3,19 @@
   display: block;
   width: 100vw;
   height: 100vh;
+  z-index: 2;
+
+  animation: appear calc(var(--anim-duration) * 1.5);
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
