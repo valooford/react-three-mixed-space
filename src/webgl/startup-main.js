@@ -25,7 +25,10 @@ class MainStartup {
     assets.queue(assetUrls.modelTexture);
 
     assets.subscribe(() => {
-      this.model = new Model();
+      {
+        const texture = assets.get(assetUrls.modelTexture);
+        this.model = new Model({ texture });
+      }
 
       {
         const onIntersect = (coords) => {

@@ -7,7 +7,7 @@ class Model extends THREE.Object3D {
 
   static rotationLimit = Math.PI / 4; // condition for simultaneous move and rotation
 
-  constructor() {
+  constructor({ texture }) {
     super();
 
     this.targetPosition = null;
@@ -15,7 +15,7 @@ class Model extends THREE.Object3D {
     this.isPositioned = false;
 
     this._geometry = new THREE.BoxGeometry(1, 1, 1);
-    this._material = new THREE.MeshPhongMaterial({ color: "lightgreen" });
+    this._material = new THREE.MeshPhongMaterial({ map: texture });
 
     this._model = new THREE.Mesh(this._geometry, this._material);
     this._model.position.y = 0.5;
