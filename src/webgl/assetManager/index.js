@@ -6,6 +6,16 @@ class AssetManager {
     this._cache = {};
     this._listeners = [];
   }
+
+  subscribe() {}
+
+  queue() {}
+
+  get() {}
+
+  loadQueued() {}
+
+  load() {}
 }
 
 export default AssetManager;
