@@ -106,6 +106,10 @@ class Model extends THREE.Object3D {
       this.isPositioned = true;
     }
   }
+
+  dispose() {
+    this._light.shadow.dispose();
+  }
 }
 
 export default Model;
