@@ -1,12 +1,16 @@
 import * as THREE from "three";
 
 class Plane extends THREE.Object3D {
+  static areaScale = 0.0084;
+
+  static areaDepth = 0.35;
+
   constructor({ camera, canvas, texture, onIntersect }) {
     super();
 
     this.rotateX(THREE.MathUtils.degToRad(-90));
 
-    const geometry = new THREE.PlaneGeometry(10, 10, 10);
+    const geometry = new THREE.PlaneGeometry();
     const material = new THREE.MeshPhongMaterial({
       map: texture,
       transparent: true,
@@ -32,6 +36,16 @@ class Plane extends THREE.Object3D {
     canvas.addEventListener("click", this.onIntersect);
 
     this.add(this._plane);
+  }
+
+  resize(size) {
+    const areaSize = new THREE.Vector2(
+      Plane.areaScale * size.width,
+      Plane.areaScale * size.height
+    );
+    this._plane.geometry.dispose();
+    this._plane.geometry = new THREE.PlaneGeometry(areaSize.x, areaSize.y);
+    this._plane.geometry.translate(areaSize.x / 2, -areaSize.y / 2, 0);
   }
 }
 
