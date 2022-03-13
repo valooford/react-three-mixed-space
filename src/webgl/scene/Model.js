@@ -16,6 +16,8 @@ class Model extends THREE.Object3D {
     this.isRotated = false;
     this.isPositioned = false;
     this._mixer = null;
+    this._actions = { idle: null };
+    this._currentAction = null;
 
     this._material = new THREE.MeshPhongMaterial({ map: texture });
 
@@ -29,6 +31,10 @@ class Model extends THREE.Object3D {
     });
 
     this._mixer = new THREE.AnimationMixer(this._model);
+    this._actions.idle = this._mixer.clipAction(idle.animations[0]);
+    this._actions.idle.fadeIn(0.5);
+    this._actions.idle.play();
+    this._currentAction = this._actions.idle;
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
@@ -41,6 +47,7 @@ class Model extends THREE.Object3D {
 
   update(dtime, time) {
     const dtimeS = dtime * 0.001;
+    this._mixer.update(dtimeS);
 
     if (this.targetPosition) {
       const angle = this.rotate(dtimeS);
