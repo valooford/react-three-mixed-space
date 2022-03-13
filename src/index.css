@@ -1,6 +1,5 @@
 html {
   font-size: calc(100vh / 937);
-  /* font-size: 2px; */
 
   --color-primary: #a5bcc9;
   --color-primary-dark: #6b7982;
@@ -10,6 +9,7 @@ html {
   --duration-transition-ui: 0.5s;
 }
 body {
+  min-width: 570rem;
   margin: 0;
 }
 
