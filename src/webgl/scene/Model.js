@@ -3,6 +3,8 @@ import * as THREE from "three";
 class Model extends THREE.Object3D {
   static speed = 1; // units per second
 
+  static rotationSpeed = Math.PI; // radians per second
+
   constructor() {
     super();
 
@@ -40,7 +42,11 @@ class Model extends THREE.Object3D {
   }
 
   rotate(dtime) {
+    const step = Model.rotationSpeed * dtime;
+    const startRotation = new THREE.Quaternion().copy(this.quaternion);
     this.lookAt(this.targetPosition);
+    const targetRotation = new THREE.Quaternion().copy(this.quaternion);
+    const angle = startRotation.angleTo(targetRotation);
   }
 
   move(dtime) {
