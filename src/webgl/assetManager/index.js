@@ -36,8 +36,19 @@ class AssetManager {
     );
   }
 
-  load() {
-    return new Promise((resolve, reject) => {});
+  load(url) {
+    return new Promise((resolve, reject) => {
+      // ...
+      reject();
+    })
+      .then((res) => {
+        this._cache[url] = res;
+        return res;
+      })
+      .catch(() => {
+        delete this._cache[url];
+        throw Error(`Error while uploading ${url}`);
+      });
   }
 }
 
