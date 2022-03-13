@@ -8,6 +8,8 @@ class Plane extends THREE.Object3D {
   constructor({ camera, canvas, texture, onIntersect }) {
     super();
 
+    this.centerAnchor = new THREE.Object3D();
+
     this.rotateX(THREE.MathUtils.degToRad(-90));
 
     const geometry = new THREE.PlaneGeometry();
@@ -36,6 +38,7 @@ class Plane extends THREE.Object3D {
     canvas.addEventListener("click", this.onIntersect);
 
     this.add(this._plane);
+    this.add(this.centerAnchor);
   }
 
   resize(size) {
@@ -43,9 +46,17 @@ class Plane extends THREE.Object3D {
       Plane.areaScale * size.width,
       Plane.areaScale * size.height
     );
+    const center = new THREE.Vector3(
+      areaSize.x / 2,
+      -areaSize.y / 2,
+      Plane.areaDepth
+    );
+
     this._plane.geometry.dispose();
     this._plane.geometry = new THREE.PlaneGeometry(areaSize.x, areaSize.y);
     this._plane.geometry.translate(areaSize.x / 2, -areaSize.y / 2, 0);
+
+    this.centerAnchor.position.copy(center);
   }
 }
 

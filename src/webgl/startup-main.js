@@ -53,7 +53,7 @@ class MainStartup {
 
       this.engine.scene.add(light);
       this.engine.scene.add(this.model);
-      this.engine.scene.add(this.camera);
+      this.plane.centerAnchor.add(this.camera);
       this.engine.scene.add(this.plane);
 
       this.engine.start();

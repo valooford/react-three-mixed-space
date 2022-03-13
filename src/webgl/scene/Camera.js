@@ -7,7 +7,7 @@ class Camera extends THREE.Object3D {
     this.camera = camera;
     this.camera.position.set(0, 0.5, 4);
 
-    this.rotation.x = THREE.MathUtils.degToRad(-70);
+    this.rotation.x = THREE.MathUtils.degToRad(20);
 
     this.add(this.camera);
   }
