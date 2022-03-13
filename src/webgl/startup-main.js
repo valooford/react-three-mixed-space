@@ -18,7 +18,9 @@ class MainStartup {
 
     this.model = new Model();
 
-    const onIntersect = (coords) => {};
+    const onIntersect = (coords) => {
+      this.model.targetPosition = this.engine.scene.worldToLocal(coords);
+    };
     this.plane = new Plane({
       camera: this.engine.camera,
       canvas: this.engine.canvas,

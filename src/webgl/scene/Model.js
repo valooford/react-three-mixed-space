@@ -4,6 +4,8 @@ class Model extends THREE.Object3D {
   constructor() {
     super();
 
+    this.targetPosition = null;
+
     this._geometry = new THREE.BoxGeometry(1, 1, 1);
     this._material = new THREE.MeshPhongMaterial({ color: "lightgreen" });
 
