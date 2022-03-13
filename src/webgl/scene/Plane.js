@@ -14,6 +14,8 @@ class Plane extends THREE.Object3D {
     this._plane = new THREE.Mesh(geometry, material);
     this._plane.receiveShadow = true;
 
+    const raycaster = new THREE.Raycaster();
+
     this.add(this._plane);
   }
 }
