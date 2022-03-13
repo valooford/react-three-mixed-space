@@ -11,7 +11,9 @@ class AssetManager {
     this._listeners.push(fn);
   }
 
-  queue() {}
+  queue(url) {
+    this._queue.add(url);
+  }
 
   get() {}
 
