@@ -5,6 +5,8 @@ class Model extends THREE.Object3D {
 
   static rotationSpeed = Math.PI; // radians per second
 
+  static rotationLimit = Math.PI / 4; // condition for simultaneous move and rotation
+
   constructor() {
     super();
 
@@ -32,8 +34,10 @@ class Model extends THREE.Object3D {
     const dtimeS = dtime * 0.001;
 
     if (this.targetPosition) {
-      this.rotate(dtimeS);
-      this.move(dtimeS);
+      const angle = this.rotate(dtimeS);
+      if (this.isRotated && angle < Model.rotationLimit) {
+        this.move(dtimeS);
+      }
 
       if (this.isRotated && this.isPositioned) {
         this.targetPosition = null;
@@ -55,6 +59,7 @@ class Model extends THREE.Object3D {
       this.quaternion.copy(targetRotation);
       this.isRotated = true;
     }
+    return angle;
   }
 
   move(dtime) {
