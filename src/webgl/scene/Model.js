@@ -22,7 +22,12 @@ class Model extends THREE.Object3D {
     this.add(this._light.target);
   }
 
-  update(dtime, time) {}
+  update(dtime, time) {
+    if (this.targetPosition) {
+      this.position.copy(this.targetPosition);
+      this.targetPosition = null;
+    }
+  }
 }
 
 export default Model;
