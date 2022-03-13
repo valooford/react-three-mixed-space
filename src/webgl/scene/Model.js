@@ -35,6 +35,7 @@ class Model extends THREE.Object3D {
     this._actions.idle.fadeIn(0.5);
     this._actions.idle.play();
     this._currentAction = this._actions.idle;
+    this._actions.walk = this._mixer.clipAction(walk.animations[0]);
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
