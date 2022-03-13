@@ -7,6 +7,10 @@ class WebGLOverlayApp {
     this.startup = new MainStartup({ context });
   }
 
+  setAngle(angle) {
+    this.startup.setAngle(angle);
+  }
+
   destroy() {}
 }
 

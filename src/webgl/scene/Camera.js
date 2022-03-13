@@ -11,6 +11,8 @@ class Camera extends THREE.Object3D {
 
     this.add(this.camera);
   }
+
+  rotateTo(angle) {}
 }
 
 export default Camera;

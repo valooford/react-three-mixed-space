@@ -56,6 +56,10 @@ class MainStartup {
     });
     assets.loadQueued();
   }
+
+  setAngle(angle) {
+    this.camera.rotateTo(angle);
+  }
 }
 
 export default MainStartup;
