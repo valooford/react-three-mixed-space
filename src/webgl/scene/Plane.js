@@ -1,7 +1,7 @@
 import * as THREE from "three";
 
 class Plane extends THREE.Object3D {
-  constructor() {
+  constructor({ camera, canvas }) {
     super();
 
     this.rotateX(THREE.MathUtils.degToRad(-90));
@@ -15,6 +15,9 @@ class Plane extends THREE.Object3D {
     this._plane.receiveShadow = true;
 
     const raycaster = new THREE.Raycaster();
+    this.onIntersect = (e) => {};
+    this.onIntersect = this.onIntersect.bind(this);
+    canvas.addEventListener("click", this.onIntersect);
 
     this.add(this._plane);
   }
