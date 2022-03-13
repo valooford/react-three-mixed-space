@@ -16,10 +16,7 @@ class MainStartup {
     const { engine, assets } = context;
 
     this.engine = engine;
-    this.camera = new Camera({
-      camera: this.engine.camera,
-      canvas: this.engine.canvas,
-    });
+    this.camera = new Camera({ camera: this.engine.camera });
     this.model = null;
     this.plane = null;
 
@@ -52,6 +49,7 @@ class MainStartup {
 
       this.engine.scene.add(light);
       this.engine.scene.add(this.model);
+      this.engine.scene.add(this.camera);
       this.engine.scene.add(this.plane);
 
       this.engine.start();
