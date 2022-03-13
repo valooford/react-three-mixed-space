@@ -89,6 +89,16 @@ class MainStartup {
 
   destroy() {
     this.engine.stop();
+    this.tracked.forEach((resource) => {
+      if (resource instanceof THREE.Object3D) {
+        if (resource.parent) {
+          resource.parent.remove(resource);
+        }
+      }
+      if (typeof resource.dispose === "function") {
+        resource.dispose();
+      }
+    });
     this.engine = null;
     this.camera = null;
     this.model = null;
