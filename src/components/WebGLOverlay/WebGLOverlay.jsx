@@ -14,6 +14,8 @@ const WebGLOverlay = () => {
     [canvas]
   );
 
+  useEffect(() => webGLOverlayApp?.setAngle(angle), [webGLOverlayApp, angle]);
+
   useEffect(() => () => webGLOverlayApp?.destroy(), [webGLOverlayApp]);
 
   return <canvas className={classes.canvas} ref={setCanvas} />;
