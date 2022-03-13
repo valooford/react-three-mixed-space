@@ -55,14 +55,16 @@ class Model extends THREE.Object3D {
 
   rotate(dtime) {
     const step = Model.rotationSpeed * dtime;
-    const startRotation = new THREE.Quaternion().copy(this.quaternion);
-    this.lookAt(this.targetPosition);
-    const targetRotation = new THREE.Quaternion().copy(this.quaternion);
+    const startRotation = new THREE.Quaternion().copy(this._model.quaternion);
+    this._model.lookAt(this.targetPosition);
+    const targetRotation = new THREE.Quaternion().copy(this._model.quaternion);
     const angle = startRotation.angleTo(targetRotation);
     if (angle > step) {
-      this.quaternion.copy(startRotation.rotateTowards(targetRotation, step));
+      this._model.quaternion.copy(
+        startRotation.rotateTowards(targetRotation, step)
+      );
     } else {
-      this.quaternion.copy(targetRotation);
+      this._model.quaternion.copy(targetRotation);
       this.isRotated = true;
     }
     return angle;
