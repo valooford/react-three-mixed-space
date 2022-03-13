@@ -4,6 +4,10 @@ import Camera from "./scene/Camera";
 import Model from "./scene/Model";
 import Plane from "./scene/Plane";
 
+const assetUrls = {
+  modelTexture: "./assets/textures/wall.png",
+};
+
 class MainStartup {
   constructor({ context }) {
     const { engine, assets } = context;
@@ -15,6 +19,8 @@ class MainStartup {
     });
 
     const light = new THREE.AmbientLight(0xffffff, 0.3);
+
+    assets.queue(assetUrls.modelTexture);
 
     this.model = new Model();
 
