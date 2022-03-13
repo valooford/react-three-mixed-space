@@ -1,7 +1,9 @@
 import * as THREE from "three";
 
 class Model extends THREE.Object3D {
-  static speed = 1; // units per second
+  static scale = 0.035;
+
+  static speed = Model.scale * 30; // units per second
 
   static rotationSpeed = Math.PI; // radians per second
 
@@ -17,6 +19,7 @@ class Model extends THREE.Object3D {
     this._material = new THREE.MeshPhongMaterial({ map: texture });
 
     this._model = model;
+    this._model.scale.setScalar(Model.scale);
     this._model.castShadow = true;
 
     this._light = new THREE.DirectionalLight(0xffffff, 1);
