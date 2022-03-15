@@ -45,7 +45,10 @@ class Engine {
     this.running = false;
   }
 
-  animate() {}
+  animate() {
+    if (!this.running) return;
+    this.requestId = requestAnimationFrame(this.animate);
+  }
 
   update() {}
 }
