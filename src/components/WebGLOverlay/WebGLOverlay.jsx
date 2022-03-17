@@ -4,7 +4,7 @@ import { useStoreContext } from "../../store";
 import WebGLOverlayApp from "../../webgl";
 import classes from "./style.module.css";
 
-const Space = () => {
+const WebGLOverlay = () => {
   const [canvas, setCanvas] = useState(null);
 
   const [{ angle }] = useStoreContext();
@@ -21,4 +21,4 @@ const Space = () => {
   return <canvas className={classes.canvas} ref={setCanvas} />;
 };
 
-export default Space;
+export default WebGLOverlay;

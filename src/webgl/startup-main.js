@@ -1,4 +1,5 @@
 import * as THREE from "three";
+
 import Camera from "./scene/Camera";
 import Model from "./scene/Model";
 import Plane from "./scene/Plane";
@@ -8,29 +9,26 @@ const assetUrls = {
   model: "./assets/models/char_man.fbx",
   modelAnimationIdle: "./assets/models/char_man_idle.fbx",
   modelAnimationWalk: "./assets/models/char_man_walk.fbx",
-  planeTexture: "./assets/textures/grid.png",
 };
 
-class SpaceStartup {
+class MainStartup {
   constructor({ context }) {
     const { engine, assets } = context;
 
     this.engine = engine;
-    const light = new THREE.AmbientLight(0xffffff, 0.3);
     this.camera = new Camera({ camera: this.engine.camera });
-    this.tracked = new Set();
     this.model = null;
     this.plane = null;
+    this.tracked = new Set();
 
-    assets.queue(assetUrls.modelTexture);
+    const light = new THREE.AmbientLight(0xffffff, 0.3);
+
     assets.queue(assetUrls.model);
+    assets.queue(assetUrls.modelTexture);
     assets.queue(assetUrls.modelAnimationIdle);
     assets.queue(assetUrls.modelAnimationWalk);
-    assets.queue(assetUrls.planeTexture);
 
-    assets.addListener(() => {
-      // loaded...
-
+    assets.subscribe(() => {
       {
         const model = assets.get(assetUrls.model);
         const texture = assets.get(assetUrls.modelTexture);
@@ -38,21 +36,15 @@ class SpaceStartup {
         const walk = this.track(assets.get(assetUrls.modelAnimationWalk));
         this.model = this.track(new Model({ model, texture, idle, walk }));
       }
-      // const lightCameraHelper = new THREE.CameraHelper(
-      //   this.model.light.shadow.camera
-      // );
 
       {
-        const texture = assets.get(assetUrls.planeTexture);
-        const onIntersect = (targetPosition) => {
-          this.model.targetPosition =
-            this.engine.scene.worldToLocal(targetPosition);
+        const onIntersect = (coords) => {
+          this.model.targetPosition = this.engine.scene.worldToLocal(coords);
         };
         this.plane = this.track(
           new Plane({
-            canvas: this.engine.canvas,
             camera: this.engine.camera,
-            texture,
+            canvas: this.engine.canvas,
             onIntersect,
           })
         );
@@ -60,7 +52,6 @@ class SpaceStartup {
 
       this.engine.scene.add(light);
       this.engine.scene.add(this.model);
-      // this.engine.scene.add(lightCameraHelper);
       this.plane.centerAnchor.add(this.camera);
       this.engine.scene.add(this.plane);
 
@@ -111,11 +102,10 @@ class SpaceStartup {
       }
     });
     this.engine = null;
-    this.tracked = null;
     this.camera = null;
     this.model = null;
     this.plane = null;
   }
 }
 
-export default SpaceStartup;
+export default MainStartup;

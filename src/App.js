@@ -2,7 +2,7 @@ import { useMemo, useReducer } from "react";
 
 import Header from "./components/Header";
 import Page from "./components/Page";
-import Space from "./components/Space";
+import WebGLOverlay from "./components/WebGLOverlay";
 import { getActions, initialState, reducer, StoreContext } from "./store";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <StoreContext.Provider value={[state, actions]}>
       <div>
-        {isThreeDimensional && <Space />}
+        {isThreeDimensional && <WebGLOverlay />}
         <Header />
         <Page />
       </div>

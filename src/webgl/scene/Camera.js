@@ -7,9 +7,9 @@ class Camera extends THREE.Object3D {
     super();
 
     this.camera = camera;
-    this.targetRotation = null;
-    this.savedRotation = null;
-    this.speed = 0;
+    this._targetRotation = null;
+    this._savedRotation = null;
+    this._speed = 0;
 
     this.camera.position.set(0, 0.5, 4);
 
@@ -17,24 +17,24 @@ class Camera extends THREE.Object3D {
   }
 
   update(dtime, time) {
-    if (typeof this.targetRotation === "number") {
+    if (typeof this._targetRotation === "number") {
       const rotation = this.rotation.x;
-      const angle = this.targetRotation - rotation;
+      const angle = this._targetRotation - rotation;
       // if rotation not in process or new rotation started
       if (
-        !(typeof this.savedRotation === "number") ||
-        (this.speed && this.savedRotation !== this.targetRotation)
+        !(typeof this._savedRotation === "number") ||
+        (this._speed && this._savedRotation !== this._targetRotation)
       ) {
-        this.savedRotation = this.targetRotation;
-        this.speed = angle / Camera.smoothTime; // rad per millisecond
+        this._savedRotation = this._targetRotation;
+        this._speed = angle / Camera.smoothTime; // rad per millisecond
       }
-      const step = this.speed * dtime; // rad to rotate
+      const step = this._speed * dtime; // rad to rotate
       // if angle is reached
-      if (!this.speed || Math.abs(angle) < Math.abs(step)) {
-        this.rotation.x = this.targetRotation;
-        this.targetRotation = null;
-        this.savedRotation = null;
-        this.speed = null;
+      if (!this._speed || Math.abs(angle) < Math.abs(step)) {
+        this.rotation.x = this._targetRotation;
+        this._targetRotation = null;
+        this._savedRotation = null;
+        this._speed = null;
         return;
       }
       this.rotateX(step);
@@ -42,7 +42,7 @@ class Camera extends THREE.Object3D {
   }
 
   rotateTo(angle) {
-    this.targetRotation = THREE.MathUtils.degToRad(angle);
+    this._targetRotation = THREE.MathUtils.degToRad(angle);
   }
 }
 

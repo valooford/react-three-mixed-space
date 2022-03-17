@@ -11,14 +11,12 @@
 
 @keyframes appear {
   0% {
-    display: none;
     opacity: 0;
   }
   60% {
     opacity: 0;
   }
   100% {
-    display: none;
     opacity: 1;
   }
 }

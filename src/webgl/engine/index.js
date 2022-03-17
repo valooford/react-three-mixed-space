@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-export class Engine {
+class Engine {
   static cameraFov = 60;
   static cameraZoom = 0.5;
   static cameraNear = 0.1;
@@ -12,8 +12,8 @@ export class Engine {
     this.time = 0;
     this.lastTime = 0;
 
-    this.resize = this.resize.bind(this);
     this.animate = this.animate.bind(this);
+    this.resize = this.resize.bind(this);
 
     // renderer
     this.renderer = new THREE.WebGLRenderer({
@@ -45,34 +45,6 @@ export class Engine {
 
     // scene
     this.scene = new THREE.Scene();
-
-    this.resize();
-  }
-
-  resize() {
-    const { clientWidth, clientHeight } = this.canvas;
-    this.renderer.setSize(
-      clientWidth * this.pixelRatio,
-      clientHeight * this.pixelRatio,
-      false
-    );
-    this.camera.aspect = clientWidth / clientHeight;
-    this.camera.updateProjectionMatrix();
-
-    const size = { width: clientWidth, height: clientHeight };
-    this.scene.traverse((obj) => {
-      if (typeof obj.resize === "function") {
-        obj.resize(size);
-      }
-    });
-  }
-
-  update(dtime = 0, time = 0) {
-    this.scene.traverse((obj) => {
-      if (typeof obj.update === "function") {
-        obj.update(dtime, time);
-      }
-    });
   }
 
   draw() {
@@ -80,7 +52,6 @@ export class Engine {
   }
 
   start() {
-    // adding listeners
     window.addEventListener("resize", this.resize);
 
     this.resize();
@@ -93,18 +64,47 @@ export class Engine {
     this.requestId = null;
     this.running = false;
 
-    // removing listeners
     window.removeEventListener("resize", this.resize);
   }
 
   animate(now) {
     if (!this.running) return;
-    requestAnimationFrame(this.animate);
+    this.requestId = requestAnimationFrame(this.animate);
 
     const dtime = now - this.lastTime;
     this.time += dtime;
     this.lastTime = now;
+
     this.update(dtime, this.time);
     this.draw();
   }
+
+  update(dtime, time) {
+    this.scene.traverse((obj) => {
+      if (typeof obj.update === "function") {
+        obj.update(dtime, time);
+      }
+    });
+  }
+
+  resize() {
+    const { clientWidth, clientHeight } = this.canvas;
+    this.renderer.setSize(
+      clientWidth * this.pixelRatio,
+      clientHeight * this.pixelRatio,
+      false
+    );
+
+    this.camera.aspect = clientWidth / clientHeight;
+    this.camera.updateProjectionMatrix();
+
+    const size = { width: clientWidth, height: clientHeight };
+    this.scene.traverse((obj) => {
+      if (typeof obj.resize === "function") {
+        obj.resize(size);
+      }
+    });
+  }
 }
+
+export default Engine;

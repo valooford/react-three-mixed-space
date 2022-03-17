@@ -1,10 +1,10 @@
 import { getContext } from "./context";
-import SpaceStartup from "./startup-space";
+import MainStartup from "./startup-main";
 
 class WebGLOverlayApp {
   constructor({ canvas }) {
     const context = getContext({ canvas });
-    this.startup = new SpaceStartup({ context });
+    this.startup = new MainStartup({ context });
   }
 
   setAngle(angle) {

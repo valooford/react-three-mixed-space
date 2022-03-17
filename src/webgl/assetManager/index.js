@@ -1,14 +1,14 @@
 import * as THREE from "three";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 
-export class AssetManager {
+class AssetManager {
   constructor() {
-    this._cache = {};
     this._queue = new Set();
+    this._cache = {};
     this._listeners = [];
   }
 
-  addListener(fn) {
+  subscribe(fn) {
     this._listeners.push(fn);
   }
 
@@ -47,6 +47,8 @@ export class AssetManager {
       } else if (url.endsWith(".fbx")) {
         const loader = new FBXLoader();
         loader.load(url, resolve, undefined, reject);
+      } else {
+        reject();
       }
     })
       .then((res) => {
@@ -59,3 +61,5 @@ export class AssetManager {
       });
   }
 }
+
+export default AssetManager;
