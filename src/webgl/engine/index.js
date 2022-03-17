@@ -15,6 +15,7 @@ class Engine {
     this.animate = this.animate.bind(this);
     this.resize = this.resize.bind(this);
 
+    // renderer
     this.renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
@@ -28,8 +29,10 @@ class Engine {
     );
     this.renderer.shadowMap.enabled = true;
 
+    // canvas
     this.canvas = this.renderer.domElement;
 
+    // camera
     const aspectRatio = canvas.clientWidth / canvas.clientHeight;
     this.camera = new THREE.PerspectiveCamera(
       Engine.cameraFov,
@@ -40,6 +43,7 @@ class Engine {
     this.camera.zoom = Engine.cameraZoom;
     this.camera.updateProjectionMatrix();
 
+    // scene
     this.scene = new THREE.Scene();
   }
 

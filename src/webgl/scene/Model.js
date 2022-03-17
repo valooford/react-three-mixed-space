@@ -2,6 +2,7 @@ import * as THREE from "three";
 
 class Model extends THREE.Object3D {
   static scale = 0.035;
+  static scaleGlobal = 33 * Model.scale;
 
   static speed = Model.scale * 30; // units per second
 
@@ -23,6 +24,7 @@ class Model extends THREE.Object3D {
 
     this._model = model;
     this._model.scale.setScalar(Model.scale);
+    this._model.rotateY(THREE.MathUtils.degToRad(45));
     this._model.children.forEach((part) => {
       if (part instanceof THREE.Mesh) {
         part.material = this._material;
@@ -30,6 +32,7 @@ class Model extends THREE.Object3D {
       }
     });
 
+    // animations
     this._mixer = new THREE.AnimationMixer(this._model);
     this._actions.idle = this._mixer.clipAction(idle.animations[0]);
     this._actions.idle.fadeIn(0.5);
@@ -40,6 +43,14 @@ class Model extends THREE.Object3D {
     this._light = new THREE.DirectionalLight(0xffffff, 1);
     this._light.position.set(3, 2, 1);
     this._light.castShadow = true;
+    this._light.shadow.camera = new THREE.OrthographicCamera(
+      -1 * Model.scaleGlobal, // left
+      1 * Model.scaleGlobal, // right
+      1.4 * Model.scaleGlobal, // top
+      -0.2 * Model.scaleGlobal, // bottom
+      2.5 * Model.scaleGlobal, // near
+      6 * Model.scaleGlobal // far
+    ); // increases shadow quality
 
     this.add(this._model);
     this.add(this._light);
